@@ -25,7 +25,7 @@ export class DatabaseAdapter {
     return await this._repo.user.findUnique({ where: {id}})
   }
 
-  async findAll(filter?: any): Promise<TUser.Model[]> {
+  async findMany(filter?: any): Promise<TUser.Model[]> {
     if(!filter) return await this._repo.user.findMany()
     return await this._repo.user.findMany(filter)
   }
