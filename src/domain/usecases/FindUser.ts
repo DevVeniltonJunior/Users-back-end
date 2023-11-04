@@ -6,7 +6,7 @@ export class FindUser implements IFindUser {
   async execute (filter?: TFilter): Promise<User[]> {
     if(!filter) return await this._repository.findMany()
 
-    const _filter: Record<string, any> = {}
+    const _filter: Record<string, any> = { deleted_at: null }
 
     if(filter.name) _filter['name'] = { contains: filter.name}
     if(filter.createdAt) _filter['created_at'] = filter.createdAt

@@ -26,7 +26,11 @@ export class DatabaseAdapter {
   }
 
   async findMany(filter?: any): Promise<TUser.Model[]> {
-    if(!filter) return await this._repo.user.findMany()
+    if(!filter) return await this._repo.user.findMany({
+      where: {
+        deleted_at: null
+      }
+    })
     return await this._repo.user.findMany(filter)
   }
 }

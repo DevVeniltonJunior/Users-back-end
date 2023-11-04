@@ -9,6 +9,14 @@ export class GetUserController {
     const findUser = new FindUser(repository)
 
     try {
+      if(!req.query.name || !req.query.createdAt || !req.query.lte || !req.query.gte) {
+        const entities = await findUser.execute()
+  
+        return {
+          statusCode: 200,
+          data: entities.map(entity => entity.toJson())
+        }
+      }
       const entities = await findUser.execute(req.query)
   
       return {

@@ -3,7 +3,7 @@ export namespace TGetUser {
     export type params = object
     export type body = object
     export type query = {
-      id?: string
+      name?: string
       createdAt?: string
       lte?: string
       gte?: string
