@@ -9,7 +9,7 @@ export class GetUserController {
     const findUser = new FindUser(repository)
 
     try {
-      if(!req.query.name || !req.query.createdAt || !req.query.lte || !req.query.gte) {
+      if(Object.keys(req.query).length === 0) {
         const entities = await findUser.execute()
   
         return {
@@ -17,6 +17,7 @@ export class GetUserController {
           data: entities.map(entity => entity.toJson())
         }
       }
+      console.log
       const entities = await findUser.execute(req.query)
   
       return {
