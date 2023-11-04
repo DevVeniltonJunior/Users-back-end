@@ -1,5 +1,6 @@
 import { User } from '@/domain/entities'
+import { TFilter } from './TFilter'
 
 export interface IFindUser {
-  execute: (filter?: any) => Promise<User[]>
+  execute: (filter?: TFilter) => Promise<User[]>
 }

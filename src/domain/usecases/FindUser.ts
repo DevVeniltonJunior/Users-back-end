@@ -1,9 +1,17 @@
-import { IFindUser, IUserQueryRepository } from'@/domain/protocols'
+import { IFindUser, IUserQueryRepository, TFilter } from'@/domain/protocols'
 import { User } from '@/domain/entities'
 
 export class FindUser implements IFindUser {
   constructor(private readonly _repository: IUserQueryRepository) {}
-  async execute (filter?: any): Promise<User[]> {
-    return await this._repository.findMany(filter)
+  async execute (filter?: TFilter): Promise<User[]> {
+    if(!filter) return await this._repository.findMany()
+
+    const _filter: Record<string, any> = {}
+
+    if(filter.name) _filter['name'] = { contains: filter.name}
+    if(filter.createdAt) _filter['created_at'] = filter.createdAt
+    if(filter.lte && filter.gte) _filter['created_at'] = { lte: filter.lte, gte: filter.gte }
+
+    return await this._repository.findMany({ where: _filter })
   }
 }
