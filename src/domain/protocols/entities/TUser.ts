@@ -13,8 +13,8 @@ export namespace TUser {
     name: string,
     email: string,
     phone: string,
-    createdAt?: Date | string,
-    updatedAt?: Date | string
+    created_at?: Date | string,
+    updated_at?: Date | string
   }
 
   export type DTO = {

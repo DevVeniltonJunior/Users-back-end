@@ -10,8 +10,8 @@ export class UserAdapter {
       new Name(model.name),
       new Email(model.email),
       new Phone(model.phone),
-      model.createdAt ? new DateEpoch(model.createdAt) : undefined,
-      model.updatedAt ? new DateEpoch(model.updatedAt) : undefined
+      model.created_at ? new DateEpoch(model.created_at) : undefined,
+      model.created_at ? new DateEpoch(model.created_at) : undefined
     )
   }
 

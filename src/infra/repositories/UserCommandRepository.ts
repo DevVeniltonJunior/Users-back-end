@@ -13,6 +13,7 @@ export class UserCommandRepository implements IUserCommandRepository {
     delete (<any>model).id
 
     const user = await this.databaseAdapter.create(model)
+    console.log(user)
 
     return UserAdapter.toEntity(user)
   }
