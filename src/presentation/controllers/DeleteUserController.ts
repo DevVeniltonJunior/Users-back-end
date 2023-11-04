@@ -1,5 +1,5 @@
 import { DeleteUser } from '@/domain/usecases'
-import { UserBirthdate, UserCPF, UserEmail, UserFirstName, UserGender, UserId, UserLastName } from '@/domain/valueObjects'
+import { Id } from '@/domain/valueObjects'
 import { UserCommandRepository } from '@/infra/repositories'
 import { TDeleteUser, TRoute, Response } from '@/presentation/protocols'
 
@@ -11,7 +11,7 @@ export class DeleteUserController {
     const deleteUser = new DeleteUser(repository)
 
     try {
-      await deleteUser.execute(new UserId(parseFloat(userId)))
+      await deleteUser.execute(new Id(parseFloat(userId)))
   
       return {
         statusCode: 200,

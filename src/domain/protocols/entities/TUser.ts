@@ -4,8 +4,8 @@ export namespace TUser {
     name: string,
     email: string,
     phone: string,
-    created_at?: Date | string | number,
-    updated_at?: Date | string | number
+    created_at?: Date | string,
+    updated_at?: Date | string
   }
 
   export type Model = {
@@ -13,8 +13,8 @@ export namespace TUser {
     name: string,
     email: string,
     phone: string,
-    createdAt?: Date | string | number,
-    updatedAt?: Date | string | number
+    createdAt?: Date | string,
+    updatedAt?: Date | string
   }
 
   export type DTO = {
