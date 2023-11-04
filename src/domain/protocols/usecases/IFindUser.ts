@@ -1,5 +1,5 @@
 import { User } from '@/domain/entities'
 
 export interface IFindUser {
-  exceute: (filter?: any) => Promise<User[]>
+  execute: (filter?: any) => Promise<User[]>
 }
