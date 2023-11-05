@@ -4,7 +4,6 @@ export namespace TGetUser {
     export type body = object
     export type query = {
       name?: string
-      createdAt?: string
       lte?: string
       gte?: string
     }

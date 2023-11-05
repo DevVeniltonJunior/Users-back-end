@@ -9,7 +9,6 @@ export class FindUser implements IFindUser {
     const _filter: Record<string, any> = { deleted_at: null }
 
     if(filter.name) _filter['name'] = { contains: filter.name}
-    if(filter.createdAt) _filter['created_at'] = filter.createdAt
     if(filter.lte && filter.gte) _filter['created_at'] = { lte: filter.lte, gte: filter.gte }
 
     return await this._repository.findMany({ where: _filter })
