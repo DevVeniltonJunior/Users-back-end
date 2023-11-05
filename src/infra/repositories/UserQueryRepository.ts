@@ -18,7 +18,7 @@ export class UserQueryRepository implements IUserQueryRepository {
   async findMany(filter?: any): Promise<User[]> {
     const users = await this.databaseAdapter.findMany(filter)
 
-    if(!users || users.length <= 0) throw new InfraException('User not found')
+    if(!users) throw new InfraException('User not found')
 
     return users.map(user => UserAdapter.toEntity(user))
   }
